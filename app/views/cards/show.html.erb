@@ -18,12 +18,12 @@
     <% if @card.img == nil %>
         <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif' >
     <% else %>
-        <%= image_tag @card.img, class: "col-md-6" %>
+        <%= image_tag @card.img, class: "col-md-6", style: "height: 425px; width: 325px;" %>
     <% end %>
     <% if @card.imgGold == nil %>
         <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif' >
     <% else %>
-        <%= image_tag @card.imgGold, class: "col-md-6" %>
+        <%= image_tag @card.imgGold, class: "col-md-6", style: "height: 425px; width: 325px;" %>
     <% end %>
         
 </div>

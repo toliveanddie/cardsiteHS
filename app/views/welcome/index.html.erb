@@ -43,7 +43,12 @@
 </div>
 <hr>
 <h2>This is your opening hand, which cards do you mulligan?</h2>
+<h5>some cards don't have images, sorry.</h5>
 
 <% 10.times do %>
-    <%= image_tag show_random_card(@cards), style: "height: 325px;" %>
+<div id="float">
+    <% @random_card = show_random_card(@cards) %>
+    <%= link_to (image_tag @random_card.img, style: "height: 325px;"), @random_card %>
+    <p id="random"><%= @random_card.name %></p>
+</div>
 <% end %>
