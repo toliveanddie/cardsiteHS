@@ -1,12 +1,5 @@
 <h1><%= @card.name %></h1>
 
-<br>
-<div class="row">
-    <div class="col-md-6"><img src=<%= @card.img %>></div>
-    <div class="col-md-6"><img src=<%= @card.imgGold %>></div>
-</div>
-
-
     <h4>cardSet: <strong><%= @card.cardSet %></strong></h4>
     <h4>cardType: <strong><%= @card.cardType %></strong></h4>
     <h4>faction: <strong><%= @card.faction %></strong></h4>
@@ -20,3 +13,17 @@
     <h4>how to get: <strong><%= @card.howToGet %></strong></h4>
     <h4>how to get gold: <strong><%= @card.howToGetGold %></strong></h4>
     <h4>language(locale): <strong><%= @card.locale %></strong></h4>
+    
+<div class="row">
+    <% if @card.img == nil %>
+        <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif' >
+    <% else %>
+        <%= image_tag @card.img, class: "col-md-6" %>
+    <% end %>
+    <% if @card.imgGold == nil %>
+        <img src='http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif' >
+    <% else %>
+        <%= image_tag @card.imgGold, class: "col-md-6" %>
+    <% end %>
+        
+</div>

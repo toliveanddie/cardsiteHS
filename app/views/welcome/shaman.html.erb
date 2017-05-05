@@ -1,0 +1,43 @@
+    <img src ="http://media.services.zam.com/v1/media/byName/hs/cards/enus/HERO_02.png">
+    <img src="http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/HERO_02_premium.gif">
+
+
+
+<%= will_paginate @shaman %>
+<div class="row">
+    <h3>
+    <div class="col-md-2">Card Set</div>
+    <div class="col-md-2">Card Name</div>
+    <div class="col-md-2">Class</div>
+    <div class="col-md-2">Mana Cost</div>
+    <div class="col-md-2">Rarity</div>
+    <div class="col-md-2">Card Type</div>
+    <h3>
+</div>
+<hr>
+
+<% @shaman.each do |card| %>
+    <div class="row">
+        <div class="col-md-2">
+            <h4><%= card.cardSet %></h4>
+        </div>
+        <div class="col-md-2">
+            <h4><%= link_to card.name, card %></h4> 
+        </div>
+        <div class="col-md-2">
+            <h4><%= card.playerClass %></h4>
+        </div>
+        <div class="col-md-2">
+            <h4><%= card.cost %></h4>
+        </div>
+        <div class="col-md-2">
+            <h4><%= card.rarity %></h4>
+        </div>
+        <div class="col-md-2">
+            <h4><%= card.cardType %></h4>
+        </div>
+        
+    </div>
+<% end %>
+
+<%= will_paginate @shaman %>

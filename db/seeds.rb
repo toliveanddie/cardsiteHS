@@ -31,4 +31,4 @@ cards.each do |key, value|
     :locale => card['locale']
     )
   end
- end
+end

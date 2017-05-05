@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+  
+#card controller
   resources :cards
 
+#welcome controller
   get 'welcome/index'
+  get '/druid', to: 'welcome#druid'
+  get '/hunter', to: 'welcome#hunter'
+  get '/mage', to: 'welcome#mage'
+  get '/paladin', to: 'welcome#paladin'
+  get '/priest', to: 'welcome#priest'
+  get '/rogue', to: 'welcome#rogue'
+  get '/shaman', to: 'welcome#shaman'
+  get '/warlock', to: 'welcome#warlock'
+  get '/warrior', to: 'welcome#warrior'
+  
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
