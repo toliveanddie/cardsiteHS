@@ -41,4 +41,9 @@
         <%= link_to 'WARRIOR', warrior_path, class: "btn btn-info btn-lg" %>
     </h3>
 </div>
+<hr>
+<h2>This is your opening hand, which cards do you mulligan?</h2>
 
+<% 10.times do %>
+    <%= image_tag show_random_card(@cards), style: "height: 325px;" %>
+<% end %>

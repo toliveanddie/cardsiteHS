@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @cards = Card.all
   end
   
   def druid
