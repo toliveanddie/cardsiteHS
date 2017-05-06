@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+
+# users controller
+  devise_for :users
 #card controller
   resources :cards
 
