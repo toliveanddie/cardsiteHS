@@ -43,6 +43,7 @@ class WelcomeController < ApplicationController
     @neutral = Card.neutral.paginate(:page => params[:page])
   end
   
-  
+  def about
+  end
   
 end
