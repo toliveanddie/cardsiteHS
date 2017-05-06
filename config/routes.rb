@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
 
+#profile controller
+  resources :profiles
+  
 # users controller
   devise_for :users
+  
 #card controller
   resources :cards
 
 #welcome controller
+  root 'welcome#index'
   get 'welcome/index'
-  post 'welcome/index'
+  post '/index', to: 'welcome#index'
   get '/about', to: 'welcome#about'
   get '/druid', to: 'welcome#druid'
   get '/hunter', to: 'welcome#hunter'
@@ -26,7 +31,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'welcome#index'
+   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

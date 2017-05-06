@@ -1,0 +1,28 @@
+<%- model_class = Profile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:favorite_hero_class) %></th>
+      <th><%= model_class.human_attribute_name(:battle_tag) %></th>
+      <th><%= model_class.human_attribute_name(:steam_name) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= link_to 'view profile', profile_path(profile), class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to profile.id, profile_path(profile) %></td>
+        <td><%= profile.first_name %></td>
+        <td><%= profile.favorite_hero_class %></td>
+        <td><%= profile.battle_tag %></td>
+        <td><%= profile.steam_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

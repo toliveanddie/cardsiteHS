@@ -1,0 +1,26 @@
+<%- model_class = Profile -%>
+
+<% if @profile.user == current_user %>
+  <h2>Signed in as: <%= current_user.email %></h2>
+  <h5>your email can't be seen by visitors</h5>
+<% else %>
+  <h1>Profile</h1>
+<% end %>
+
+<hr>
+<br>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><h3><%= @profile.first_name %></h3></dd>
+  <dt><strong><%= model_class.human_attribute_name(:favorite_hero_class) %>:</strong></dt>
+  <dd><h3><%= @profile.favorite_hero_class %></h3></dd>
+  <dt><strong><%= model_class.human_attribute_name(:battle_tag) %>:</strong></dt>
+  <dd><h3><%= @profile.battle_tag %></h3></dd>
+  <dt><strong><%= model_class.human_attribute_name(:steam_name) %>:</strong></dt>
+  <dd><h3><%= @profile.steam_name %></h3></dd>
+</dl>
+<% if @profile.user == current_user %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_profile_path(@profile), :class => 'btn btn-info' %>
+<% end %>
