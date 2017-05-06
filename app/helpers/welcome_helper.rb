@@ -1,4 +1,5 @@
 module WelcomeHelper
+    
     def show_random_card
         check = nil
         collect = false
@@ -12,4 +13,5 @@ module WelcomeHelper
         end
         return b
     end
+    
 end
