@@ -3,42 +3,19 @@
     ordered by cardset
 </h1>
 
-
-
 <%= will_paginate %>
-<div class="row">
-    <h3>
-    <div class="col-md-2">Card Set</div>
-    <div class="col-md-2">Card Name</div>
-    <div class="col-md-2">Class</div>
-    <div class="col-md-2">Mana Cost</div>
-    <div class="col-md-2">Rarity</div>
-    <div class="col-md-2">Card Type</div>
-    <h3>
-</div>
 <hr>
 
 <% @cards.each do |card| %>
-    <div class="row">
-        <div class="col-md-2">
-            <h4><%= card.cardSet %></h4>
-        </div>
-        <div class="col-md-2">
-            <h4><%= link_to card.name, card %></h4> 
-        </div>
-        <div class="col-md-2">
-            <h4><%= card.playerClass %></h4>
-        </div>
-        <div class="col-md-2">
-            <h4><%= card.cost %></h4>
-        </div>
-        <div class="col-md-2">
-            <h4><%= card.rarity %></h4>
-        </div>
-        <div class="col-md-2">
-            <h4><%= card.cardType %></h4>
-        </div>
-        
+
+    <div id="float">
+        <% if card.img == nil %>
+             <%= link_to (image_tag "http://wow.zamimg.com/images/hearthstone/backs/animated/Card_Back_Default.gif", style: "height: 325px;"), card %>
+             <p><%= card.name %></p>
+        <% else %>
+             <%= link_to (image_tag card.img, style: "height: 325px;"), card %>
+             <p><%= card.name %></p>
+        <% end %>
     </div>
 <% end %>
 
