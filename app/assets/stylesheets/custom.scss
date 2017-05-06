@@ -1,17 +1,8 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-h3 {
+h3, strong {
     color: red;
-}
-
-strong {
-    color: red;
-}
-
-#float {
-    float: left;
-    text-align: center;
 }
 
 #random {

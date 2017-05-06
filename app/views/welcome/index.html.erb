@@ -16,8 +16,8 @@
 <h5>note: some cards have no image</h5>
 <hr>
 <% 10.times do %>
-<div id="float">
+
     <% @random_card = show_random_card %>
     <%= link_to (image_tag @random_card.img, style: "height: 325px;"), @random_card %>
-</div>
+
 <% end %>

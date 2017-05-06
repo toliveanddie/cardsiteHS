@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 #welcome controller
   get 'welcome/index'
+  post 'welcome/index'
   get '/druid', to: 'welcome#druid'
   get '/hunter', to: 'welcome#hunter'
   get '/mage', to: 'welcome#mage'
