@@ -1,23 +1,15 @@
 <h1>Welcome to a HS card app!</h1>
 <h3>explore each hero in the drop down list above<br>
-    List ALL CARDS? <%= link_to 'click here', cards_path %>
+    List ALL CARDS? <%= link_to 'click here', cards_path, class: "btn btn-info" %>
     <% if user_signed_in? %>
         <% if current_user.profile(:user_id) == nil %>
             <hr>
-            please <%= link_to 'create a profile here', new_profile_path %>
+            Please create profile <%= link_to 'here', new_profile_path, class: "btn btn-primary" %>
         <% end %>
+    <% else %>
+        <hr>
+        <h2>New to the site? <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary btn-lg" %></h2>
     <% end %>
 </h3>
-<hr>
-<h2>
-    Of the 10 cards below, you can only start with 4 in your hand<br>
-    which 6 do you discard?
-</h2>
-<h5>note: some cards have no image. images may take a moment to load</h5>
-<hr>
-<% 10.times do %>
 
-    <% @random_card = show_random_card %>
-    <%= link_to (image_tag @random_card.img, style: "height: 325px;"), @random_card %>
-
-<% end %>
+<%= render 'indexpartial' %>
