@@ -1,6 +1,6 @@
 <h1>
     listing all cards<br>
-    ordered by cardset
+    ordered by cardset <small>basic, classic, nax, gvg...etc</small>
 </h1>
 
 <%= will_paginate %>
@@ -14,7 +14,7 @@
              <p><%= card.name %></p>
         <% else %>
              <%= link_to (image_tag card.img, style: "height: 325px;"), card %>
-             <p><%= card.name %></p>
+             <p><%= card.cardSet %></p>
         <% end %>
     </div>
 <% end %>

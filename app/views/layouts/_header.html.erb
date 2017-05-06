@@ -1,5 +1,22 @@
 <nav class="navbar navbar-inverse">
     <ul class="nav navbar-nav">
         <li><%= link_to 'Home', root_path %></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Hero Classes <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Druid", druid_path %></li>
+              <li><%= link_to 'Hunter', hunter_path %></li>
+              <li><%= link_to 'Mage', mage_path %></li>
+              <li><%= link_to 'Paladin', paladin_path %></li>
+              <li><%= link_to 'Priest', priest_path %></li>
+              <li><%= link_to 'Rogue', rogue_path %></li>
+              <li><%= link_to 'Shaman', shaman_path %></li>
+              <li><%= link_to 'Warlock', warlock_path %></li>
+              <li><%= link_to 'Warrior', warrior_path %></li>
+            </ul>
+        </li>
+        <li><%= link_to 'Neutral Cards', neutral_path %></li>
     </ul>
 </nav>

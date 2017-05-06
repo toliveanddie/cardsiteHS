@@ -1,10 +1,11 @@
 module WelcomeHelper
-    def show_random_card(cards)
+    def show_random_card
         check = nil
         collect = false
         while (check == nil) do
             while (collect == false) do
-                b = cards.shuffle.pop
+                a = Card.all
+                b = a.shuffle.pop
                 collect = b.collectible?
             end
             check = b.img

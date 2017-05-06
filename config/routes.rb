@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/shaman', to: 'welcome#shaman'
   get '/warlock', to: 'welcome#warlock'
   get '/warrior', to: 'welcome#warrior'
+  get '/neutral', to: 'welcome#neutral'
   
   
 

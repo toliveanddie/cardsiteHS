@@ -1,54 +1,23 @@
 <h1>
     Welcome!<br>
-    please use the links and buttons to take a look around.<br>
-    enjoy !
+    please use the Hero drop down list above to explore a Hero.<br>
+    enjoy !<br>
+    if you want a list of ALL CARDS <%= link_to 'click here', cards_path %>
 </h1>
 
 <br>
 
-<h2>ALL CARDS <%= link_to 'GO!', cards_path, class: "btn btn-info btn-lg" %></h2>
-<hr>
-<div class="row">
-    <h3 class="col-md-4">
-        <%= link_to 'DRUID', druid_path, class: "btn btn-info btn-lg" %>
-    </h3>
-    <h3 class="col-md-4">
-        <%= link_to 'HUNTER', hunter_path, class: "btn btn-info btn-lg" %>
-    </h3>
-    <h3 class="col-md-4">
-        <%= link_to 'MAGE', mage_path, class: "btn btn-info btn-lg" %>
-    </h3>
-</div>
-<div class="row">
-    <h3 class="col-md-4">
-        <%= link_to 'PALADIN', paladin_path, class: "btn btn-info btn-lg" %>
-    </h3>
-    <h3 class="col-md-4">
-        <%= link_to 'PRIEST', priest_path, class: "btn btn-info btn-lg" %>
-    </h3>
-    <h3 class="col-md-4">
-        <%= link_to 'ROGUE', rogue_path, class: "btn btn-info btn-lg" %>
-    </h3>
-</div>
-<div class="row">
-    <h3 class="col-md-4">
-    <%= link_to 'SHAMAN', shaman_path, class: "btn btn-info btn-lg" %>
-    </h3>
-    <h3 class="col-md-4">
-        <%= link_to 'WARLOCK', warlock_path, class: "btn btn-info btn-lg" %>
-    </h3>
-    <h3 class="col-md-4">
-        <%= link_to 'WARRIOR', warrior_path, class: "btn btn-info btn-lg" %>
-    </h3>
-</div>
-<hr>
-<h2>This is your opening hand, which cards do you mulligan?</h2>
-<h5>some cards don't have images, sorry.</h5>
 
+<hr>
+<h2>
+    Of the 10 cards below, you can only start with 4 in your hand<br>
+    which 6 do you discard?
+</h2>
+<h5>some cards don't have images, sorry.</h5>
+<hr>
 <% 10.times do %>
 <div id="float">
-    <% @random_card = show_random_card(@cards) %>
+    <% @random_card = show_random_card %>
     <%= link_to (image_tag @random_card.img, style: "height: 325px;"), @random_card %>
-    <p id="random"><%= @random_card.name %></p>
 </div>
 <% end %>

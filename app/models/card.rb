@@ -8,4 +8,5 @@ class Card < ApplicationRecord
     scope :shaman, -> { where(playerClass: 'Shaman') }
     scope :warlock, -> { where(playerClass: 'Warlock') }
     scope :warrior, -> { where(playerClass: 'Warrior') }
+    scope :neutral, -> { where(playerClass: 'Neutral') }
 end
