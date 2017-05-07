@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+# deck controller
+  resources :deck
 
 #profile controller
   resources :profiles

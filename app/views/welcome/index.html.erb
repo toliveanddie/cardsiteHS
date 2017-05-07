@@ -1,5 +1,6 @@
 <h1>Welcome to a HS card app!</h1>
 <h3>explore each hero in the drop down list above<br>
+<br>
     List ALL CARDS? <%= link_to 'click here', cards_path, class: "btn btn-info" %>
     <% if user_signed_in? %>
         <% if current_user.profile(:user_id) == nil %>
