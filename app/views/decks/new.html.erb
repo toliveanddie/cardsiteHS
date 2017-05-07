@@ -1,0 +1,14 @@
+<h1>
+    Welcome!<br>
+    you are about to enter an arena card picking simulation.<br>
+    the only difference is there isn't a Hero Class selection screen. (yet. may come soon)<br>
+    all of the cards you will choose from are MINIONS with some kind of ATTACK.<br>
+    from all classes.  a truly wild minion arena selection type of experience.<br>
+    enjoy!
+</h1><br>
+<hr>
+
+<%= simple_form_for @deck do |f| %>
+    <%= f.input :name, label: 'give this deck a name' %><br>
+    <%= f.submit "start", class: "btn btn-primary btn-lg" %>
+<% end %>

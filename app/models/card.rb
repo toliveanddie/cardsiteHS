@@ -9,4 +9,7 @@ class Card < ApplicationRecord
     scope :warlock, -> { where(playerClass: 'Warlock') }
     scope :warrior, -> { where(playerClass: 'Warrior') }
     scope :neutral, -> { where(playerClass: 'Neutral') }
+    
+    belongs_to :deck_cards, dependent: :destroy
+    has_many :decks, through: :deck_cards
 end

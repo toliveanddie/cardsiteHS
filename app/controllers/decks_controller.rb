@@ -1,15 +1,24 @@
 class DecksController < ApplicationController
-    before_action :set_deck, only: [:show, :edit, :update, :destroy]
+    before_action :set_deck, only: [:show, :destroy]
+    before_action :authenticate_user!
     
     def new
-        @deck = current_user.decks.create
+        @deck = current_user.decks.build
     end
     
     def create
-        @deck = current_user.decks.create(deck_params)
+        @deck = current_user.decks.build(deck_params)
+        if @deck.save
+            render :arena
+        else
+            render :new
+        end
     end
     
     def show
+    end
+    
+    def arena
     end
     
     def destroy

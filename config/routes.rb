@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
+#deck_cards controller
+  resources :deck_cards
+  
 # deck controller
-  resources :deck
+  resources :decks
 
 #profile controller
   resources :profiles
