@@ -11,13 +11,13 @@
 <br>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dt><h5><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></h5></dt>
   <dd><h3><%= @profile.first_name %></h3></dd>
-  <dt><strong><%= model_class.human_attribute_name(:favorite_hero_class) %>:</strong></dt>
+  <dt><h5><strong><%= model_class.human_attribute_name(:favorite_hero_class) %>:</strong></h5></dt>
   <dd><h3><%= @profile.favorite_hero_class %></h3></dd>
-  <dt><strong><%= model_class.human_attribute_name(:battle_tag) %>:</strong></dt>
+  <dt><h5><strong><%= model_class.human_attribute_name(:battle_tag) %>:</strong></h5></dt>
   <dd><h3><%= @profile.battle_tag %></h3></dd>
-  <dt><strong><%= model_class.human_attribute_name(:steam_name) %>:</strong></dt>
+  <dt><h5><strong><%= model_class.human_attribute_name(:steam_name) %>:</strong></h5></dt>
   <dd><h3><%= @profile.steam_name %></h3></dd>
 </dl>
 <% if @profile.user == current_user %>
