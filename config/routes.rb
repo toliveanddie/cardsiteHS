@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+# arena controller
+  get '/pick_card', to: 'arenas#pick_card'
+  post '/pick_card', to: 'arenas#pick_card'
+  
 #deck_cards controller
   resources :deck_cards
   

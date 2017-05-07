@@ -1,13 +1,13 @@
 <hr>
 <h2>
-    Of the 10 cards below, you can only start with 4 in your hand.<br>
-    which 6 do you discard?
+    Arena anyone?<br>
+    which one do you take?
 </h2>
-<h5>note: some cards have no image. images may take a moment to load</h5>
+<h5>note: images may take a moment to load</h5>
 <hr>
-<% 10.times do %>
+<% 3.times do %>
 
     <% @random_card = show_random_card %>
-    <%= link_to (image_tag @random_card.img, style: "height: 325px;"), @random_card %>
+    <%= link_to (image_tag @random_card.img, style: "height: 400px;"), @random_card %>
 
 <% end %>

@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-cards_path = "#{Rails.root}/public/response.json"
+cards_path = "#{Rails.root}/public/collectible.json"
 cards = JSON.parse(File.read(cards_path))
 cards.each do |key, value|
   value.each do |card|

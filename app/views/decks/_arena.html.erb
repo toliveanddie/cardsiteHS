@@ -1,23 +1,44 @@
-
+<p>click on image. hero cards have no image, ex: rexxar, anduin</p>
 <div class="row">
-    <div class="col-md-8">
-        <% 3.times do %>
-            <% @arena_card = arena_random_card %>
-            <%= image_tag @arena_card.img, style: "height: 300px;" %>
-        <% end %>
+    <div class="col-md-9">
+        <div class="row">
+            <% 3.times do %>
+                <div class="col-md-3">
+                    <% @card = arena_random_card %>
+                    <%= form_for(@deck_cards) do %>
+                        <%= hidden_field_tag :card_id, @card.id %>
+                        <%= hidden_field_tag :deck_id, @deck.id %>
+                        <%= image_submit_tag @card.img, style: "height: 325px;", class: "center-block" %>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
     </div>
-    <div class="col-md-4">
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
-        blah blah<br>
+    <div class="col-md-3">
+        <h3>cards: <%= @deck.cards.size %></h3>
+        <table class="table table-condensed table-responsive">
+            <tr>
+                <th>mana</th>
+                <th>name</th>
+            </tr>
+            <% @deck.cards.order(:cost).each do |card| %>
+                <tr>
+                    <td><%= card.cost %></td>
+                    <td><%= card.name %></td>
+                </tr>
+            <% end %>
+        </table>
     </div>
 </div>
+
+
+    <script>
+        $( "div.col-md-3" ).click(function() {
+          $( this ).animate({ 
+              opacity: 0.25,
+              left: "+=600",
+              height: "toggle"
+          }, 700, function(){
+          });
+        });
+    </script>

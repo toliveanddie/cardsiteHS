@@ -16,6 +16,7 @@ class DecksController < ApplicationController
     end
     
     def show
+        @deck_cards = @deck.deck_cards.build
     end
     
     def destroy

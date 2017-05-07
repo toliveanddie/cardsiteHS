@@ -1,0 +1,25 @@
+
+    <div class="col-md-9">
+        <div class="row">
+            <% 3.times do %>
+                <div class="col-md-3">
+                    <% @card = arena_random_card %>
+                    <%= form_tag do %>
+                        <%= hidden_field_tag :card_name, @card.name %>
+                        <%= image_submit_tag @card.img, style: "height: 325px;", class: "center-block" %>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    
+    <script>
+        $( "div.col-md-3" ).click(function() {
+          $( this ).animate({ 
+              opacity: 0.25,
+              left: "+=600",
+              height: "toggle"
+          }, 700, function(){
+          });
+        });
+    </script>

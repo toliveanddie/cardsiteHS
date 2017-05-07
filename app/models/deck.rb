@@ -4,10 +4,10 @@ class Deck < ApplicationRecord
     validates :user_id, presence: true
     
     has_many :deck_cards, dependent: :destroy
-    has_many :picking, through: :deck_cards, source: :card
+    has_many :cards, through: :deck_cards
     
     def pick(card)
-        picking << card
+        cards << card
     end
     
     def picked?(card)
