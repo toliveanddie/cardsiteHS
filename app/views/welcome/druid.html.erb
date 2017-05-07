@@ -6,11 +6,12 @@
 <%= will_paginate @druid %>
 <div class="row">
     <h3>
-    <div class="col-md-2">Card Set</div>
-    <div class="col-md-2">Card Name</div>
-    <div class="col-md-2">Mana Cost</div>
-    <div class="col-md-2">Rarity</div>
-    <div class="col-md-2">Card Type</div>
+        <div class="col-md-2">Card Set</div>
+        <div class="col-md-2">Card Name</div>
+        <div class="col-md-2">Mana Cost</div>
+        <div class="col-md-2">Rarity</div>
+        <div class="col-md-2">Card Type</div>
+        <div class="col-md-2">Race</div>
     <h3>
 </div>
 <hr>
@@ -31,6 +32,9 @@
         </div>
         <div class="col-md-2">
             <h4><%= card.cardType %></h4>
+        </div>
+        <div class="col-md-2">
+            <h4><%= card.race %></h4>
         </div>
         
     </div>

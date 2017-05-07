@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-    before_action :set_profile, only: [:show, :edit, :update, :destroy]
+    before_action :set_deck, only: [:show, :edit, :update, :destroy]
     
     def new
         @deck = current_user.decks.create
