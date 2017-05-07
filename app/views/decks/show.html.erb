@@ -6,6 +6,6 @@
         <%= link_to 'delete deck', deck_path(@deck), method: :delete, class: "btn btn-danger" %></h1>
     <% end %>
     <% @deck.cards.order(:cost).each do |card| %>
-        <%= image_tag card.img, style: "height: 200px" %>
+        <%= image_tag card.img, style: "height: 250px" %>
     <% end %>
 <% end %>
