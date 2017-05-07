@@ -27,11 +27,24 @@
 
 <hr>
 <br>
-<h2>arena deck list</h2>
-<% @profile.user.decks.each do |deck| %>
+<h2>arena decks: <%= @profile.user.decks.size %></h2>
 
-  <h1>
-      <%= link_to deck.name, deck, class: "btn btn-info btn-lg" %>
-      <%= link_to 'delete deck', deck_path(deck), method: :delete, class: "btn btn-danger" %>
-  </h1>
-<% end %>
+<table class="table">
+  <tr>
+    <th>Deck name</th>
+    <th>Total cost</th>
+    <th>Total attack</th>
+    <th>Total health</th>
+    <th></th>
+  </tr>
+  <% @profile.user.decks.each do |deck| %>
+    <tr>
+      <td><%= link_to deck.name, deck_path(deck), class: "btn btn-info" %></td>
+      <td><%= deck.cards.sum(:cost) %></td>
+      <td><%= deck.cards.sum(:attack) %></td>
+      <td><%= deck.cards.sum(:health) %></td>
+      <% if @profile.user == current_user %>
+      <td><%= link_to 'delete', deck_path(deck), method: :delete, class: "btn btn-danger" %></td>
+      <% end %>
+  <% end %>
+</table>

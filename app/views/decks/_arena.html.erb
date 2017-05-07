@@ -8,7 +8,7 @@
                     <%= form_for(@deck_cards) do %>
                         <%= hidden_field_tag :card_id, @card.id %>
                         <%= hidden_field_tag :deck_id, @deck.id %>
-                        <%= image_submit_tag @card.img, style: "height: 325px;", class: "center-block" %>
+                        <%= image_submit_tag @card.img, style: "height: 350px;", class: "center-block" %>
                     <% end %>
                 </div>
             <% end %>
