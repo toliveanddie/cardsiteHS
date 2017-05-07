@@ -1,3 +1,7 @@
+<%= render 'arena' %>
+
 <h1>decks show page</h1>
 
 <h2><%= @deck.name %></h2>
+
+<%= link_to 'delete deck', deck_path(@deck), method: :delete, class: "btn btn-danger" %>

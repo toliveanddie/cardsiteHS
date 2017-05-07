@@ -9,16 +9,13 @@ class DecksController < ApplicationController
     def create
         @deck = current_user.decks.build(deck_params)
         if @deck.save
-            render :arena
+            redirect_to @deck
         else
             render :new
         end
     end
     
     def show
-    end
-    
-    def arena
     end
     
     def destroy
