@@ -1,12 +1,14 @@
 <h1>
     Welcome to an arena card selecting simulation!<br>
-    All classes are included.<br>
+    This is a "WILD" arena. All cards included.<br>
     Click Start when ready.<br>
 </h1><br>
 <h5>if you don't complete a deck. ANYONE can complete it for you!</h5>
 <hr>
 
-<%= simple_form_for @deck do |f| %>
-    <h3><%= f.input :name, label: 'give this deck a name' %></h3><br>
-    <%= f.submit "start", class: "btn btn-primary btn-lg" %>
-<% end %>
+<div class="col-md-3">
+    <%= simple_form_for @deck do |f| %>
+        <h3><%= f.input :name, label: 'give it a name' %></h3><br>
+        <%= f.submit "start", class: "btn btn-primary btn-lg" %>
+    <% end %>
+</div>
