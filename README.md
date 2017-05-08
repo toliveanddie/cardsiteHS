@@ -1,4 +1,4 @@
-<a href="https://codeclimate.com/github/codeclimate/codeclimate"><img src="https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg" /></a>
+<a href="https://codeclimate.com/github/toliveanddie/cardsiteHS"><img src="https://codeclimate.com/github/toliveanddie/cardsiteHS/badges/gpa.svg" /></a>
 
 cardsiteHS
 
