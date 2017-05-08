@@ -8,3 +8,4 @@ create a profile,
 take a look around,
 look at hearthstone cards and their meta-data,
 and I took it as a personal challenge to implement an arena card selection simulation.
+you can see the app working at: https://dry-falls-42780.herokuapp.com/
