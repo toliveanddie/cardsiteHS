@@ -1,11 +1,27 @@
 <% if (@deck.deck_cards.size < 31) %>
    <%= render 'arena' %>
 <% else %>
-    <h1>deck: <%= @deck.name %></h1><br>
-    <%= link_to 'view profile', current_user.profile, class: "btn btn-info" %><br>
-    <% if @deck.user == current_user %><br>
-        <%= link_to 'delete deck', deck_path(@deck), method: :delete, class: "btn btn-danger" %>
-    <% end %>
+    <br>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th>total cost</th>
+            <th>total attack</th>
+            <th>total health</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><strong><%= @deck.name %></strong></td>
+            <td><%= link_to 'view profile', current_user.profile, class: "btn btn-info" %></td>
+            <td><%= @deck.cards.sum(:cost) %></td>
+            <td><%= @deck.cards.sum(:attack) %></td>
+            <td><%= @deck.cards.sum(:health) %></td>
+            <% if @deck.user == current_user %><br>
+                <td><%= link_to 'delete deck', deck_path(@deck), method: :delete, class: "btn btn-danger" %></td>
+            <% end %>
+        </tr>
+    </table>
     <hr>
     <% @deck.cards.order(:cost).each do |card| %>
         <%= image_tag card.img, style: "height: 250px" %>
