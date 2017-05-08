@@ -17,15 +17,18 @@
     </div>
     <div class="col-md-3">
         <h3>cards: <%= @deck.cards.size %></h3>
-        <table class="table table-condensed table-responsive">
+        <table class="table table-condensed">
             <tr>
                 <th>mana</th>
                 <th>name</th>
+                <th>rarity</th>
+
             </tr>
             <% @deck.cards.order(:cost).each do |card| %>
                 <tr>
                     <td><%= card.cost %></td>
                     <td><%= card.name %></td>
+                    <td><%= card.rarity %></td>
                 </tr>
             <% end %>
         </table>

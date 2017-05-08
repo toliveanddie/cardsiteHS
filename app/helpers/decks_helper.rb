@@ -35,17 +35,17 @@ module DecksHelper
     end
         
     def arena_random_card(card_rarity)
-        cards = Card.all
+        hero_check = "Hero"
         rarity_cards = []
-        check_hero = "Hero"
+        cards = Card.all
         cards.each do |card|
             if card.rarity == card_rarity
                 rarity_cards << card
             end
         end
-        while (check_hero == "Hero") do
+        while (hero_check == "Hero") do
             random_card = rarity_cards.shuffle.pop
-            check_hero = random_card.cardType
+            hero_check = random_card.cardType
         end
         return random_card
     end
