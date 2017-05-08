@@ -1,5 +1,4 @@
-<a href="https://codeclimate.com/github/toliveanddie/cardsiteHS"><img src="https://codeclimate.com/github/toliveanddie/cardsiteHS/badges/gpa.svg" /></a>
-
+[![Code Climate](https://codeclimate.com/github/toliveanddie/cardsiteHS/badges/gpa.svg)](https://codeclimate.com/github/toliveanddie/cardsiteHS)
 cardsiteHS
 
 in this Hearthstone card site, built with ruby on rails,
