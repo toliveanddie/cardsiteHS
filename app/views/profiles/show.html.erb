@@ -21,8 +21,7 @@
   <dd><h3><%= @profile.steam_name %></h3></dd>
 </dl>
 <% if @profile.user == current_user %>
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_profile_path(@profile), :class => 'btn btn-info' %>
+    <%= link_to 'edit profile', edit_profile_path(@profile), :class => 'btn btn-info' %>
 <% end %>
 
 <hr>
