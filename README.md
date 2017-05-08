@@ -1,5 +1,7 @@
 [![Code Climate](https://codeclimate.com/github/toliveanddie/cardsiteHS/badges/gpa.svg)](https://codeclimate.com/github/toliveanddie/cardsiteHS)
 [![Issue Count](https://codeclimate.com/github/toliveanddie/cardsiteHS/badges/issue_count.svg)](https://codeclimate.com/github/toliveanddie/cardsiteHS)
+[![Dependency Status](https://gemnasium.com/badges/github.com/toliveanddie/cardsiteHS.svg)](https://gemnasium.com/github.com/toliveanddie/cardsiteHS)
+
 cardsiteHS
 
 in this Hearthstone card site, built with ruby on rails,
