@@ -2,9 +2,10 @@
 <div class="row">
     <div class="col-md-9">
         <div class="row">
+            <% @rarity = random_rarity %>
             <% 3.times do %>
+                <% @card = arena_random_card(@rarity) %>
                 <div class="col-md-3">
-                    <% @card = arena_random_card %>
                     <%= form_for(@deck_cards) do %>
                         <%= hidden_field_tag :card_id, @card.id %>
                         <%= hidden_field_tag :deck_id, @deck.id %>
