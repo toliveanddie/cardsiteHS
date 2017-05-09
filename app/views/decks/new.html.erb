@@ -1,19 +1,10 @@
 <h1>
     Welcome to an arena card selecting simulation!<br>
-    This is a "WILD" arena. All cards included.<br>
-    Click Start when ready.<br>
+    This is a "Standard" arena. Only standard cards are used.<br>
+    Click on your Hero when ready.<br>
 </h1><br>
 <h5>if you don't complete a deck. ANYONE can complete it for you!</h5>
 <hr>
 
-<div class="row">
-    <% 3.times do %>
-        <% @hero_card = random_hero_card %>
-        <div class="col-md-4">
-            <%= form_for @deck do |f| %>
-                <%= hidden_field_tag :name, @hero_card.playerClass %>
-                <%= image_submit_tag @hero_card.img, style: "height: 350px;" %>
-            <% end %>
-        </div>
-    <% end %>
-</div>
+<%= render 'new_partial' %>
+

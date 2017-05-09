@@ -1,0 +1,20 @@
+<% @hero_cards = [] %>
+<% @cards = Card.all %>
+<% hero_names.each do |name| %>
+    <% @cards.each do |card| %>
+        <% if card.name == name %>
+            <% @hero_cards << card %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<div class="row">
+    <% @hero_cards.shuffle.pop(3).each do |card| %>
+        <div class="col-md-4">
+            <%= form_for @deck do |f| %>
+                <%= hidden_field_tag :name, card.playerClass %>
+                <%= image_submit_tag card.img, style: "height: 350px;" %>
+            <% end %>
+        </div>
+    <% end %>
+</div>

@@ -1,9 +1,7 @@
 module DecksHelper
     
-    def random_hero_card
-        hero_cards = []
-        cards = Card.all
-        heroes = ["Anduin Wrynn",
+    def hero_names
+        names = ["Anduin Wrynn",
                   "Garrosh Hellscream",
                   "Gul'dan", 
                   "Jaina Proudmoore", 
@@ -12,10 +10,7 @@ module DecksHelper
                   "Thrall",
                   "Uther Lightbringer",
                   "Valeera Sanguinar"]
-        heroes.each do |hero|
-            hero_cards.push(cards.find_by name: hero)
-        end
-        return hero_cards.shuffle.pop
+        return names
     end
     
 # get a random rarity
