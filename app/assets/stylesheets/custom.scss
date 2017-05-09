@@ -14,3 +14,9 @@
     float: left;
     text-align: center;
 }
+
+.bg-image {
+    background-image: image-url("bg4.jpg");
+    background-size: cover;
+    background-position: center;
+}

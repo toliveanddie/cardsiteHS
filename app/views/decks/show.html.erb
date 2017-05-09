@@ -1,9 +1,4 @@
-<style>
-    body {
-        background: url(/assets/bg4.jpg) no-repeat center fixed;
-        background-size: cover;
-    }
-</style>
+<body class="bg-image">
 
 <% if (@deck.deck_cards.size < 31) %>
    <%= render 'arena' %>
@@ -34,3 +29,5 @@
         <%= image_tag card.img, style: "height: 250px" %>
     <% end %>
 <% end %>
+
+</body>
