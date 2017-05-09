@@ -17,12 +17,12 @@
             <th></th>
         </tr>
         <tr>
-            <td><%= @deck.cards.sum(:cost) %></td>
-            <td><%= @deck.cards.where(rarity: 'Free').count %></td>
-            <td><%= @deck.cards.where(rarity: 'Common').count %></td>
-            <td><%= @deck.cards.where(rarity: 'Rare').count %></td>
-            <td><%= @deck.cards.where(rarity: 'Epic').count %></td>
-            <td><%= @deck.cards.where(rarity: 'Legendary').count %></td>
+            <td><strong><%= @deck.cards.sum(:cost) %></stong></td>
+            <td><strong><%= @deck.cards.where(rarity: 'Free').count %></stong></td>
+            <td><strong><%= @deck.cards.where(rarity: 'Common').count %></stong></td>
+            <td><strong><%= @deck.cards.where(rarity: 'Rare').count %></stong></td>
+            <td><strong><%= @deck.cards.where(rarity: 'Epic').count %></stong></td>
+            <td><strong><%= @deck.cards.where(rarity: 'Legendary').count %></stong></td>
             <% if @deck.user == current_user %><br>
                 <td><%= link_to 'delete deck', deck_path(@deck), method: :delete, class: "btn btn-danger" %></td>
             <% end %>

@@ -28,7 +28,7 @@
 <br>
 <h2>arena decks: <%= @profile.user.decks.size %></h2>
 
-<table class="table table-responsive">
+<table class="table table-responsive table-condensed">
   <tr>
     <th>Deck name</th>
     <th>Total Cost</th>
@@ -41,13 +41,13 @@
   </tr>
   <% @profile.user.decks.each do |deck| %>
     <tr>
-      <td><%= link_to deck.name, deck_path(deck), class: "btn btn-info" %></td>
-      <td><%= deck.cards.sum(:cost) %></td>
-      <td><%= deck.cards.where(rarity: 'Free').count %></td>
-      <td><%= deck.cards.where(rarity: 'Common').count %></td>
-      <td><%= deck.cards.where(rarity: 'Rare').count %></td>
-      <td><%= deck.cards.where(rarity: 'Epic').count %></td>
-      <td><%= deck.cards.where(rarity: 'Legendary').count %></td>
+      <td><strong><%= link_to deck.name, deck_path(deck), class: "btn btn-info" %></strong></td>
+      <td><strong><%= deck.cards.sum(:cost) %></strong></td>
+      <td><strong><%= deck.cards.where(rarity: 'Free').count %></strong></td>
+      <td><strong><%= deck.cards.where(rarity: 'Common').count %></strong></td>
+      <td><strong><%= deck.cards.where(rarity: 'Rare').count %></strong></td>
+      <td><strong><%= deck.cards.where(rarity: 'Epic').count %></strong></td>
+      <td><strong><%= deck.cards.where(rarity: 'Legendary').count %></strong></td>
       <% if @profile.user == current_user %>
         <td><%= link_to 'delete', deck_path(deck), method: :delete, class: "btn btn-danger" %></td>
       <% end %>
