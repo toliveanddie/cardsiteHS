@@ -28,22 +28,28 @@
 <br>
 <h2>arena decks: <%= @profile.user.decks.size %></h2>
 
-<table class="table">
+<table class="table table-responsive">
   <tr>
     <th>Deck name</th>
-    <th>Total cost</th>
-    <th>Total attack</th>
-    <th>Total health</th>
+    <th>Total Cost</th>
+    <th>Free</th>
+    <th>Common</th>
+    <th>Rare</th>
+    <th>Epic</th>
+    <th>Legendary</th>
     <th></th>
   </tr>
   <% @profile.user.decks.each do |deck| %>
     <tr>
       <td><%= link_to deck.name, deck_path(deck), class: "btn btn-info" %></td>
       <td><%= deck.cards.sum(:cost) %></td>
-      <td><%= deck.cards.sum(:attack) %></td>
-      <td><%= deck.cards.sum(:health) %></td>
+      <td><%= deck.cards.where(rarity: 'Free').count %></td>
+      <td><%= deck.cards.where(rarity: 'Common').count %></td>
+      <td><%= deck.cards.where(rarity: 'Rare').count %></td>
+      <td><%= deck.cards.where(rarity: 'Epic').count %></td>
+      <td><%= deck.cards.where(rarity: 'Legendary').count %></td>
       <% if @profile.user == current_user %>
-      <td><%= link_to 'delete', deck_path(deck), method: :delete, class: "btn btn-danger" %></td>
+        <td><%= link_to 'delete', deck_path(deck), method: :delete, class: "btn btn-danger" %></td>
       <% end %>
   <% end %>
 </table>

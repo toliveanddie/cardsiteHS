@@ -4,21 +4,25 @@
    <%= render 'arena' %>
 <% else %>
     <br>
-    <table class="table">
+    <h2><%= @deck.name %></h2>
+    <%= link_to 'view profile', current_user.profile, class: "btn btn-info" %>
+    <table class="table table-responsive">
         <tr>
-            <th>Name</th>
-            <th></th>
             <th>total cost</th>
-            <th>total attack</th>
-            <th>total health</th>
+            <th>Free</th>
+            <th>Common</th>
+            <th>Rare</th>
+            <th>Epic</th>
+            <th>Legendary</th>
             <th></th>
         </tr>
         <tr>
-            <td><strong><%= @deck.name %></strong></td>
-            <td><%= link_to 'view profile', current_user.profile, class: "btn btn-info" %></td>
             <td><%= @deck.cards.sum(:cost) %></td>
-            <td><%= @deck.cards.sum(:attack) %></td>
-            <td><%= @deck.cards.sum(:health) %></td>
+            <td><%= @deck.cards.where(rarity: 'Free').count %></td>
+            <td><%= @deck.cards.where(rarity: 'Common').count %></td>
+            <td><%= @deck.cards.where(rarity: 'Rare').count %></td>
+            <td><%= @deck.cards.where(rarity: 'Epic').count %></td>
+            <td><%= @deck.cards.where(rarity: 'Legendary').count %></td>
             <% if @deck.user == current_user %><br>
                 <td><%= link_to 'delete deck', deck_path(@deck), method: :delete, class: "btn btn-danger" %></td>
             <% end %>
@@ -26,7 +30,7 @@
     </table>
     <hr>
     <% @deck.cards.order(:cost).each do |card| %>
-        <%= image_tag card.img, style: "height: 250px" %>
+            <%= image_tag card.img, style: "height: 250px" %>
     <% end %>
 <% end %>
 
