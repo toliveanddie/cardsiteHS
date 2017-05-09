@@ -15,23 +15,18 @@ module DecksHelper
     
 # get a random rarity
     def random_rarity
-    
         chance_array = []
-        3.times do
-            chance_array.push("Legendary")
-        end
-        9.times do
-            chance_array.push("Epic")
-        end
-        20.times do
-            chance_array.push("Rare")
-        end
-        34.times do
-            chance_array.push("Common")
-        end
-        34.times do
-            chance_array.push("Free")
-        end
+        a = Array.new(3)
+        a.fill("Legendary")
+        b = Array.new(9)
+        b.fill("Epic")
+        c = Array.new(20)
+        c.fill("Rare")
+        d = Array.new(34)
+        d.fill("Common")
+        e = Array.new(34)
+        e.fill("Free")
+        chance_array = a + b + c + d + e
         return chance_array.shuffle.pop
     end
 
