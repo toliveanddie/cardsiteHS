@@ -2,10 +2,11 @@
 <div class="row">
     <div class="col-md-9">
         <div class="row">
+            <% @hero_class = @deck.name %>
             <% @rarity = random_rarity %>
             <% 3.times do %>
-                <% @card = arena_random_card(@rarity) %>
-                <div class="col-md-3">
+                <% @card = arena_random_card(@rarity, @hero_class) %>
+                <div class="col-md-4">
                     <%= form_for(@deck_cards) do %>
                         <%= hidden_field_tag :card_id, @card.id %>
                         <%= hidden_field_tag :deck_id, @deck.id %>
@@ -16,6 +17,7 @@
         </div>
     </div>
     <div class="col-md-3">
+        <h1><%= @deck.name %></h1>
         <h3>cards: <%= @deck.cards.size %></h3>
         <table class="table table-condensed">
             <tr>
@@ -37,7 +39,7 @@
 
 
     <script>
-        $( "div.col-md-3" ).click(function() {
+        $(".col-md-4").click(function() {
           $( this ).animate({ 
               opacity: 0.25,
               left: "+=600",

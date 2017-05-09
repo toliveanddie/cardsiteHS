@@ -7,7 +7,8 @@ class DecksController < ApplicationController
     end
     
     def create
-        @deck = current_user.decks.build(deck_params)
+        deck_name = (params[:name])
+        @deck = current_user.decks.build(name: deck_name)
         if @deck.save
             redirect_to @deck
         else
@@ -25,10 +26,6 @@ class DecksController < ApplicationController
     end
     
     private
-        
-        def deck_params
-            params.require(:deck).permit(:name)
-        end
         
         def set_deck
             @deck = Deck.find(params[:id])
