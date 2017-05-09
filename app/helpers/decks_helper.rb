@@ -71,16 +71,24 @@ module DecksHelper
             end
         end
 
-    # sort hero class selection from hero cards
-        standard_cardset.each do |cardset|
+    #push hero class cards
+    
+    # push only hero class cards
+            hero_class_cards = []
             cards.each do |card|
                 if card.playerClass == hero_class
+                    hero_class_cards << card
+                end
+            end
+            
+    # sort hero class cards into standard cards
+        standard_cardset.each do |cardset|
+            hero_class_cards.each do |card|
+                if card.cardSet == cardset
                     standard_cards << card
                 end
             end
         end
-            
-            
         
     # sorting for a specific rarity        
         rarity_cards = []
