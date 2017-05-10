@@ -7,7 +7,4 @@ class DeckCardsController < ApplicationController
         @deck.pick(@card)
         redirect_to @deck
     end
-    
-    def destroy
-    end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/pick_card', to: 'arenas#pick_card'
   
 #deck_cards controller
-  resources :deck_cards
+  resources :deck_cards, only: [:create]
   
 # deck controller
   resources :decks

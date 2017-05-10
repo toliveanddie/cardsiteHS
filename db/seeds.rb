@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+#push the cards to model
 cards_path = "#{Rails.root}/public/collectible.json"
 cards = JSON.parse(File.read(cards_path))
 cards.each do |key, value|
@@ -36,3 +36,5 @@ cards.each do |key, value|
     )
   end
 end
+
+#get scores of cards and push to model
