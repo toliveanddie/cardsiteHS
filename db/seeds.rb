@@ -36,5 +36,3 @@ cards.each do |key, value|
     )
   end
 end
-
-#get scores of cards and push to model
