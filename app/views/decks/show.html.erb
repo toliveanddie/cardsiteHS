@@ -8,21 +8,23 @@
     <%= link_to 'view profile', current_user.profile, class: "btn btn-info" %>
     <table class="table table-responsive">
         <tr>
-            <th>total cost</th>
             <th>Free</th>
             <th>Common</th>
             <th>Rare</th>
             <th>Epic</th>
             <th>Legendary</th>
+            <th>Attack</th>
+            <th>Health</th>
             <th></th>
         </tr>
         <tr>
-            <td><strong><%= @deck.cards.sum(:cost) %></stong></td>
             <td><strong><%= @deck.cards.where(rarity: 'Free').count %></stong></td>
             <td><strong><%= @deck.cards.where(rarity: 'Common').count %></stong></td>
             <td><strong><%= @deck.cards.where(rarity: 'Rare').count %></stong></td>
             <td><strong><%= @deck.cards.where(rarity: 'Epic').count %></stong></td>
             <td><strong><%= @deck.cards.where(rarity: 'Legendary').count %></stong></td>
+            <td><strong><%= @deck.cards.sum(:attack) %></stong></td>
+            <td><strong><%= @deck.cards.sum(:health) %></stong></td>
             <% if @deck.user == current_user %><br>
                 <td><%= link_to 'delete deck', deck_path(@deck), method: :delete, class: "btn btn-danger" %></td>
             <% end %>
