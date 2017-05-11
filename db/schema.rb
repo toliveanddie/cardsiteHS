@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511004452) do
+ActiveRecord::Schema.define(version: 20170511033933) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "cardId"
     t.string   "name"
     t.string   "cardSet"
-    t.string   "cardType"
+    t.string   "cardtype"
     t.string   "faction"
     t.string   "rarity"
     t.integer  "cost"

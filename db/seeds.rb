@@ -15,7 +15,7 @@ cards.each do |key, value|
     :cardId => card['cardId'],
     :name => card['name'],
     :cardSet => card['cardSet'],
-    :cardType => card['type'],
+    :cardtype => card['type'],
     :faction => card['faction'],
     :rarity => card['rarity'],
     :cost => card['cost'],
