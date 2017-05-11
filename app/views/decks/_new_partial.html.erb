@@ -8,6 +8,15 @@
     <% end %>
 <% end %>
 
+<div class="text-center">
+<h3>
+    <%= radio_button_tag(:arena_choice, "standard") %>
+    <%= label_tag(:standard_choice, "Standard Arena") %>
+    <%= radio_button_tag(:arena_choice, "wild") %>
+    <%= label_tag(:wild_choice, "Wild Minion Arena") %>
+</h3>
+</div>
+
 <div class="row">
     <% @hero_cards.shuffle.pop(3).each do |card| %>
         <div class="col-md-4">
@@ -17,4 +26,5 @@
             <% end %>
         </div>
     <% end %>
+    
 </div>

@@ -36,3 +36,74 @@ cards.each do |key, value|
     )
   end
 end
+
+minions = Card.where("cardType = 'Minion'")
+free_minions = minions.where("rarity = 'Free'")
+free_minions.each do |card|
+  if card.playerClass == "Neutral"
+    a = 2
+  else
+    a = 3
+  end
+    a += card.cost
+    a += (card.attack * 2)
+    a += (card.health * 3)
+    card.card_score = a
+    card.save
+end
+
+common_minions = minions.where("rarity = 'Common'")
+common_minions.each do |card|
+    if card.playerClass == "Neutral"
+      a = 3
+    else
+      a = 4
+    end
+    a += card.cost
+    a += (card.attack * 2)
+    a += (card.health * 3)
+    card.card_score = a
+    card.save
+end
+
+rare_minions = minions.where("rarity = 'Rare'")
+rare_minions.each do |card|
+    if card.playerClass == "Neutral"
+      a = 5
+    else
+      a = 7
+    end
+    a += card.cost
+    a += (card.attack * 2)
+    a += (card.health * 3)
+    card.card_score = a
+    card.save
+end
+
+epic_minions = minions.where("rarity = 'Epic'")
+epic_minions.each do |card|
+    if card.playerClass == "Neutral"
+      a = 12
+    else
+      a = 16
+    end
+    a += card.cost
+    a += (card.attack * 2)
+    a += (card.health * 3)
+    card.card_score = a
+    card.save
+end
+
+legendary_minions = minions.where("rarity = 'Legendary'")
+legendary_minions.each do |card|
+    if card.playerClass == "Neutral"
+      a = 34
+    else
+      a = 42
+    end
+    a += card.cost
+    a += (card.attack * 2)
+    a += (card.health * 3)
+    card.card_score = a
+    card.save
+end

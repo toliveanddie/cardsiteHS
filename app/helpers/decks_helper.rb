@@ -30,7 +30,7 @@ module DecksHelper
         return chance_array.shuffle.pop
     end
 
-    #get a random_card  
+    #standard arena random card generator
     def arena_random_card(card_rarity, hero_class)
         
         cards = Card.all
