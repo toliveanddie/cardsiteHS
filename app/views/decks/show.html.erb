@@ -13,8 +13,7 @@
             <th>Rare</th>
             <th>Epic</th>
             <th>Legendary</th>
-            <th>Attack</th>
-            <th>Health</th>
+            <th>minion score</th>
             <th></th>
         </tr>
         <tr>
@@ -23,8 +22,7 @@
             <td><strong><%= @deck.cards.where(rarity: 'Rare').count %></stong></td>
             <td><strong><%= @deck.cards.where(rarity: 'Epic').count %></stong></td>
             <td><strong><%= @deck.cards.where(rarity: 'Legendary').count %></stong></td>
-            <td><strong><%= @deck.cards.sum(:attack) %></stong></td>
-            <td><strong><%= @deck.cards.sum(:health) %></stong></td>
+            <td><strong><%= @deck.cards.sum(:card_score) %></stong></td>
             <% if @deck.user == current_user %><br>
                 <td><%= link_to 'delete deck', deck_path(@deck), method: :delete, class: "btn btn-danger" %></td>
             <% end %>
