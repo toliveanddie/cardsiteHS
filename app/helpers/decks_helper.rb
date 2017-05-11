@@ -92,7 +92,7 @@ module DecksHelper
         hero_check = "Hero"
         while (hero_check == "Hero") do
             random_card = rarity_cards.shuffle.pop
-            hero_check = random_card.cardType
+            hero_check = random_card.cardtype
         end
         return random_card
     end
