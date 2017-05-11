@@ -5,7 +5,7 @@ module WelcomeHelper
         while (hero_check == "Hero") do
             cards = Card.all
             random_card = cards.shuffle.pop
-            hero_check = random_card.cardType
+            hero_check = random_card.cardtype
         end
         return random_card
     end
