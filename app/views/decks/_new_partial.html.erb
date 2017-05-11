@@ -1,13 +1,3 @@
-<% @hero_cards = [] %>
-<% @cards = Card.all %>
-<% hero_names.each do |name| %>
-    <% @cards.each do |card| %>
-        <% if card.name == name %>
-            <% @hero_cards << card %>
-        <% end %>
-    <% end %>
-<% end %>
-
 <div class="text-center">
 <h3>
     <%= radio_button_tag(:arena_choice, "standard") %>
@@ -18,12 +8,14 @@
 </div>
 
 <div class="row">
-    <% @hero_cards.shuffle.pop(3).each do |card| %>
+    <% hero_names.each do |key| %>
+        <% key.each do |card| %>
         <div class="col-md-4">
             <%= form_for @deck do |f| %>
-                <%= hidden_field_tag :name, card.playerClass %>
-                <%= image_submit_tag card.img, style: "height: 350px;" %>
+                <%= hidden_field_tag :name, card[:playerClass] %>
+                <%= image_submit_tag card[:img], style: "height: 350px;" %>
             <% end %>
+        <% end %>
         </div>
     <% end %>
     
