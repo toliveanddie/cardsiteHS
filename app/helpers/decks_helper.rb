@@ -13,7 +13,7 @@ module DecksHelper
                   "Valeera Sanguinar"]
                   
         names.each do |name|
-            a.push(Card.where("name = ?", name))
+            a << Card.where("name = ?", name)
         end
         return a.shuffle.pop(3)
     end
@@ -92,14 +92,7 @@ module DecksHelper
                 rarity_cards << card
             end
         end
-        
-    # check if card is a "Hero"
-        hero_check = "Hero"
-        while (hero_check == "Hero") do
-            random_card = rarity_cards.shuffle.pop
-            hero_check = random_card.cardtype
-        end
-        return random_card
+        return rarity_cards.shuffle.pop(3)
     end
 
 end
