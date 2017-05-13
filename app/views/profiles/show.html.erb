@@ -41,8 +41,8 @@
   </tr>
   <% @profile.user.decks.each do |deck| %>
     <tr>
-      <td><strong><%= deck.deck_cards.sum(:card_meta_score) %></strong></td>
-      <td><strong><%= link_to deck.name, deck_path(deck), class: "btn btn-info" %></strong></td>
+      <td><strong><%= link_to deck.deck_cards.sum(:card_meta_score), deck_path(deck), class: "btn btn-info" %></strong></td>
+      <td><strong><%= deck.name %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Free').count %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Common').count %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Rare').count %></strong></td>
