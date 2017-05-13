@@ -1,0 +1,26 @@
+<h1>Decks Rankings by meta score</h1>
+
+<table class="table table-responsive">
+    <tr>
+        <th>Meta Score</th>
+        <th>Hero</th>
+        <th>Owner</th>
+        <th>Free</th>
+        <th>Classic</th>
+        <th>Rare</th>
+        <th>Epic</th>
+        <Th>Legendary</Th>
+    </tr>
+    <% @decks.each do |deck| %>
+        <tr>
+          <td><strong><%= link_to deck.deck_cards.sum(:card_meta_score), deck_path(deck), class: "btn btn-info" %></strong></td>
+          <td><strong><%= deck.name %></strong></td>
+          <td><strong><%= link_to deck.user.profile.battle_tag, deck.user.profile %></strong></td>
+          <td><strong><%= deck.cards.where(rarity: 'Free').count %></strong></td>
+          <td><strong><%= deck.cards.where(rarity: 'Common').count %></strong></td>
+          <td><strong><%= deck.cards.where(rarity: 'Rare').count %></strong></td>
+          <td><strong><%= deck.cards.where(rarity: 'Epic').count %></strong></td>
+          <td><strong><%= deck.cards.where(rarity: 'Legendary').count %></strong></td>
+        </tr>
+    <% end %>
+</table>

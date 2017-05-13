@@ -5,7 +5,7 @@
 <% else %>
     <br>
     <h2><%= @deck.name %></h2>
-    <%= link_to 'view profile', current_user.profile, class: "btn btn-info" %>
+    <%= link_to @deck.user.profile.battle_tag, @deck.user.profile, class: "btn btn-info" %>
     <table class="table table-responsive">
         <tr>
             <th>Free</th>

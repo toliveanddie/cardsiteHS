@@ -25,6 +25,10 @@ class DecksController < ApplicationController
         @deck_cards = @deck.deck_cards.build
     end
     
+    def index
+        @decks = Deck.paginate(:page => params[:page])
+    end
+    
     def destroy
         @deck.destroy
         redirect_to current_user.profile

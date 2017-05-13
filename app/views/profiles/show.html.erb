@@ -30,24 +30,24 @@
 
 <table class="table table-responsive table-condensed">
   <tr>
+    <th>meta score</th>
     <th>Deck name</th>
     <th>Free</th>
     <th>Common</th>
     <th>Rare</th>
     <th>Epic</th>
     <th>Legendary</th>
-    <th>meta score</th>
     <th></th>
   </tr>
   <% @profile.user.decks.each do |deck| %>
     <tr>
+      <td><strong><%= deck.deck_cards.sum(:card_meta_score) %></strong></td>
       <td><strong><%= link_to deck.name, deck_path(deck), class: "btn btn-info" %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Free').count %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Common').count %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Rare').count %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Epic').count %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Legendary').count %></strong></td>
-      <td><strong><%= deck.deck_cards.sum(:card_meta_score) %></strong></td>
       <% if @profile.user == current_user %>
         <td><%= link_to 'delete', deck_path(deck), method: :delete, class: "btn btn-danger" %></td>
       <% end %>
