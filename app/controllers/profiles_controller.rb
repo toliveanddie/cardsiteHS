@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     if current_user.profile == nil
-      redirect_to :new
+      redirect_to new_profile_path
     end
   end
 
