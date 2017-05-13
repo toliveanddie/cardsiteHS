@@ -7,9 +7,11 @@
                     <%= form_for(@deck_cards) do %>
                         <%= hidden_field_tag :card_id, card[:id] %>
                         <%= hidden_field_tag :deck_id, @deck.id %>
+                        <%= hidden_field_tag :card_meta_score, meta_score(card, @deck.name) %>
                         <%= image_submit_tag card[:img], style: "height: 350px;", class: "center-block" %>
                     <% end %>
                     <h5 class="text-center"><%= card.cardSet %></h5>
+                    <h4 class="text-center"><%= meta_score(card, @deck.name) %></h4>
                 </div>
             <% end %>
         </div>
@@ -28,7 +30,7 @@
                 <tr>
                     <td><%= card.cost %></td>
                     <td><%= card.name %></td>
-                    <td><%= card.rarity %></td>
+                    <td><%= card.rarity%></td>
                 </tr>
             <% end %>
         </table>

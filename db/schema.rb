@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511033933) do
+ActiveRecord::Schema.define(version: 20170513050229) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "cardId"
@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(version: 20170511033933) do
     t.integer  "health"
     t.boolean  "elite"
     t.string   "race"
-    t.integer  "card_score"
   end
 
   create_table "deck_cards", force: :cascade do |t|
     t.integer  "deck_id"
     t.integer  "card_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "card_meta_score"
     t.index ["card_id"], name: "index_deck_cards_on_card_id"
     t.index ["deck_id"], name: "index_deck_cards_on_deck_id"
   end
@@ -53,7 +53,16 @@ ActiveRecord::Schema.define(version: 20170511033933) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "meta_score"
     t.index ["user_id"], name: "index_decks_on_user_id"
+  end
+
+  create_table "hero_cards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "playerClass"
+    t.string   "img"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -65,6 +74,15 @@ ActiveRecord::Schema.define(version: 20170511033933) do
     t.datetime "updated_at",          null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "tier_scores", force: :cascade do |t|
+    t.string   "hero"
+    t.integer  "hero_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "card_id"
+    t.index ["card_id"], name: "index_tier_scores_on_card_id"
   end
 
   create_table "users", force: :cascade do |t|

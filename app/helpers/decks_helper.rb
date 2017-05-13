@@ -1,21 +1,7 @@
 module DecksHelper
     
-    def hero_names
-        a = []
-        names = ["Anduin Wrynn",
-                  "Garrosh Hellscream",
-                  "Gul'dan", 
-                  "Jaina Proudmoore", 
-                  "Malfurion Stormrage", 
-                  "Rexxar", 
-                  "Thrall",
-                  "Uther Lightbringer",
-                  "Valeera Sanguinar"]
-                  
-        names.each do |name|
-            a << Card.where("name = ?", name)
-        end
-        return a.shuffle.pop(3)
+    def hero_names(heroes)
+        heroes.shuffle.pop(3)
     end
     
 # get a random rarity
@@ -39,60 +25,41 @@ module DecksHelper
     def arena_random_card(card_rarity, hero_class)
         
         cards = Card.all
-        standard_cards = []
-        
-        standard_cardset = ["Basic",
-                          "Common",
-                          "Whispers of the Old Gods",
-                          "One Night in Karazhan",
-                          "Mean Streets of Gadgetzan",
-                          "Journey to Un'Goro"
-                          ]
+        arena_cards = []
                           
     # push neutral cards
-        neutral_cards = []
         cards.each do |card|
             if card.playerClass == "Neutral"
-                neutral_cards << card
-            end
-        end
-                          
-    # only push standard cards from neutral cards
-        standard_cardset.each do |cardset|
-            neutral_cards.each do |card|
-                if card.cardSet == cardset
-                    standard_cards << card
-                end
+                arena_cards << card
             end
         end
 
     #push hero class cards
     
     # push only hero class cards
-            hero_class_cards = []
-            cards.each do |card|
-                if card.playerClass == hero_class
-                    hero_class_cards << card
-                end
-            end
-            
-    # sort hero class cards into standard cards
-        standard_cardset.each do |cardset|
-            hero_class_cards.each do |card|
-                if card.cardSet == cardset
-                    standard_cards << card
-                end
+        cards.each do |card|
+            if card.playerClass == hero_class
+                arena_cards << card
             end
         end
         
-    # sorting for a specific rarity        
+    # sorting for the random rarity        
         rarity_cards = []
-        standard_cards.each do |card|
+        arena_cards.each do |card|
             if card.rarity == card_rarity
                 rarity_cards << card
             end
         end
+        #returning 3 random cards from the rarity array of cards
         return rarity_cards.shuffle.pop(3)
     end
-
+    
+    #finding the meta score for the arena partial
+    def meta_score(card, hero_class)
+        if card.tier_scores.where("hero = ?", hero_class).exists?
+            card.tier_scores.find_by_hero(hero_class).hero_score
+        else
+            card.tier_scores.first.hero_score
+        end
+    end
 end

@@ -1,21 +1,13 @@
 <div class="text-center">
-<h3>
-    <%= radio_button_tag(:arena_choice, "standard") %>
-    <%= label_tag(:standard_choice, "Standard Arena") %>
-    <%= radio_button_tag(:arena_choice, "wild") %>
-    <%= label_tag(:wild_choice, "Wild Minion Arena") %>
-</h3>
 </div>
 
 <div class="row">
-    <% hero_names.each do |key| %>
-        <% key.each do |card| %>
+    <% hero_names(@herocards).each do |card| %>
         <div class="col-md-4">
             <%= form_for @deck do |f| %>
-                <%= hidden_field_tag :name, card[:playerClass] %>
-                <%= image_submit_tag card[:img], style: "height: 350px;" %>
+                <%= hidden_field_tag :name, card.playerClass %>
+                <%= image_submit_tag card.img, style: "height: 350px;" %>
             <% end %>
-        <% end %>
         </div>
     <% end %>
     

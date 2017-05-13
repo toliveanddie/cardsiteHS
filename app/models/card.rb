@@ -12,4 +12,5 @@ class Card < ApplicationRecord
     
     belongs_to :deck_card
     has_many :decks, through: :deck_cards, dependent: :destroy
+    has_many :tier_scores, dependent: :destroy
 end

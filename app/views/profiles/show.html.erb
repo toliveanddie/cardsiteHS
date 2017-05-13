@@ -36,7 +36,7 @@
     <th>Rare</th>
     <th>Epic</th>
     <th>Legendary</th>
-    <th>Minion Score</th>
+    <th>meta score</th>
     <th></th>
   </tr>
   <% @profile.user.decks.each do |deck| %>
@@ -47,7 +47,7 @@
       <td><strong><%= deck.cards.where(rarity: 'Rare').count %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Epic').count %></strong></td>
       <td><strong><%= deck.cards.where(rarity: 'Legendary').count %></strong></td>
-      <td><strong><%= deck.cards.sum(:card_score) %></strong></td>
+      <td><strong><%= deck.deck_cards.sum(:card_meta_score) %></strong></td>
       <% if @profile.user == current_user %>
         <td><%= link_to 'delete', deck_path(deck), method: :delete, class: "btn btn-danger" %></td>
       <% end %>

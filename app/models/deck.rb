@@ -1,16 +1,11 @@
 class Deck < ApplicationRecord
     belongs_to :user
-    validates :name, presence: true
     validates :user_id, presence: true
     
     has_many :deck_cards, dependent: :destroy
     has_many :cards, through: :deck_cards, dependent: :destroy
     
-    def pick(card)
-        cards << card
-    end
-    
-    def picked?(card)
-        picking.include?(card)
+    def pick(card, score)
+        deck_cards.create(deck_id: self.id, card_id: card.id, card_meta_score: score)
     end
 end

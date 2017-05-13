@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
 #push the cards to model
 cards_path = "#{Rails.root}/public/collectible.json"
 cards = JSON.parse(File.read(cards_path))
@@ -37,73 +39,45 @@ cards.each do |key, value|
   end
 end
 
-minions = Card.where("cardType = 'Minion'")
-free_minions = minions.where("rarity = 'Free'")
-free_minions.each do |card|
-  if card.playerClass == "Neutral"
-    a = 2
-  else
-    a = 3
+#push tier scores
+tier_path = "#{Rails.root}/public/tier.json"
+tier_cards = JSON.parse(File.read(tier_path))
+tier_cards.each do |key, value|
+  value.each do |score_card|
+    score_card['Scores'].each do |score|
+      mcard = Card.find_by cardId: score_card['CardId']
+      mcard.tier_scores.create!(:hero => score['Hero'],
+                       :hero_score => score['Score'])
+    end
   end
-    a += card.cost
-    a += (card.attack * 2)
-    a += (card.health * 3)
-    card.card_score = a
-    card.save
 end
 
-common_minions = minions.where("rarity = 'Common'")
-common_minions.each do |card|
-    if card.playerClass == "Neutral"
-      a = 3
-    else
-      a = 4
-    end
-    a += card.cost
-    a += (card.attack * 2)
-    a += (card.health * 3)
-    card.card_score = a
-    card.save
+dcards = Card.all
+dcards.each do |d|
+  if d.tier_scores.count == 0
+    d.delete
+  end
 end
-
-rare_minions = minions.where("rarity = 'Rare'")
-rare_minions.each do |card|
-    if card.playerClass == "Neutral"
-      a = 5
-    else
-      a = 7
+hnames = ["Anduin Wrynn",
+          "Garrosh Hellscream",
+          "Gul'dan", 
+          "Jaina Proudmoore", 
+          "Malfurion Stormrage", 
+          "Rexxar", 
+          "Thrall",
+          "Uther Lightbringer",
+          "Valeera Sanguinar"]
+hero_path = "#{Rails.root}/public/collectible.json"
+hero_cards = JSON.parse(File.read(hero_path))
+hero_cards.each do |key, value|
+  value.each do |card|
+    hnames.each do |hname|
+      if card['name'] == hname
+        HeroCard.create!(
+          :name => card['name'],
+          :playerClass => card['playerClass'],
+          :img => card['img'])
+      end
     end
-    a += card.cost
-    a += (card.attack * 2)
-    a += (card.health * 3)
-    card.card_score = a
-    card.save
-end
-
-epic_minions = minions.where("rarity = 'Epic'")
-epic_minions.each do |card|
-    if card.playerClass == "Neutral"
-      a = 12
-    else
-      a = 16
-    end
-    a += card.cost
-    a += (card.attack * 2)
-    a += (card.health * 3)
-    card.card_score = a
-    card.save
-end
-
-legendary_minions = minions.where("rarity = 'Legendary'")
-legendary_minions.each do |card|
-    if card.playerClass == "Neutral"
-      a = 34
-    else
-      a = 42
-    end
-    a += card.cost
-    a += (card.attack * 2)
-    a += (card.health * 3)
-    card.card_score = a
-    card.save
+  end
 end

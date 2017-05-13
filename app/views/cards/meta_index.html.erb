@@ -1,0 +1,22 @@
+<h1>meta index table</h1>
+<br>
+
+<%= will_paginate @tier_cards %>
+<table class"table table-responsive">
+    <tr>
+        <th>Card Name</th>
+        <th>Hero</th>
+        <th>Score</th>
+        <th>Card Set</th>
+    </tr>
+    <% @tier_cards.each do |tier| %>
+        <tr>
+            <td><%= tier.card.name %></td>
+            <td><%= tier.hero %></td>
+            <td><%= tier.hero_score %></td>
+            <td><%= tier.card.cardSet %></td>
+        </tr>
+    <% end %>
+</table>
+
+<%= will_paginate @tier_cards%>

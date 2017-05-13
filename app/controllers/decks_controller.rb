@@ -4,6 +4,7 @@ class DecksController < ApplicationController
     
     def new
         @deck = current_user.decks.build
+        @herocards = HeroCard.all
     end
     
     def create

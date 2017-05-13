@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   
 #card controller
   resources :cards
+  get 'meta_index', to: 'cards#meta_index'
 
 #welcome controller
   root 'welcome#index'
