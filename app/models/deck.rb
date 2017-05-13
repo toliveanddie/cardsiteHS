@@ -8,4 +8,9 @@ class Deck < ApplicationRecord
     def pick(card, score)
         deck_cards.create(deck_id: self.id, card_id: card.id, card_meta_score: score)
     end
+    
+    def update_meta(meta)
+        meta.meta_score = meta.deck_cards.sum(:card_meta_score)
+        meta.save
+    end
 end

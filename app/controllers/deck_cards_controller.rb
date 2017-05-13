@@ -4,8 +4,8 @@ class DeckCardsController < ApplicationController
         @card = Card.find(params[:card_id])
         @deck = Deck.find(params[:deck_id])
         @score = params[:card_meta_score].to_i
-        
         @deck.pick(@card, @score)
+        @deck.update_meta(@deck)
         redirect_to @deck
     end
     

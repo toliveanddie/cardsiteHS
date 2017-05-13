@@ -11,9 +11,9 @@
         <th>Epic</th>
         <Th>Legendary</Th>
     </tr>
-    <% @decks.each do |deck| %>
+    <% @decks.order(meta_score: :desc).each do |deck| %>
         <tr>
-          <td><strong><%= link_to deck.deck_cards.sum(:card_meta_score), deck_path(deck), class: "btn btn-info" %></strong></td>
+          <td><strong><%= link_to deck.meta_score, deck_path(deck), class: "btn btn-info" %></strong></td>
           <td><strong><%= deck.name %></strong></td>
           <td><strong><%= link_to deck.user.profile.battle_tag, deck.user.profile %></strong></td>
           <td><strong><%= deck.cards.where(rarity: 'Free').count %></strong></td>
