@@ -1,5 +1,7 @@
 <h1>Decks Rankings by meta score</h1>
 
+<%= will_paginate @decks %>
+
 <table class="table table-responsive">
     <tr>
         <th>Meta Score</th>
@@ -24,3 +26,5 @@
         </tr>
     <% end %>
 </table>
+
+<%= will_paginate @decks %>

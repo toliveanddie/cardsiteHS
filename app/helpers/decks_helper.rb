@@ -20,6 +20,21 @@ module DecksHelper
         chance_array = a + b + c + d + e
         return chance_array.shuffle.pop
     end
+    
+    #last 4 picks are rare or higher
+    def last_four_rarity
+        rare_chance_array = []
+        a = Array.new(3)
+        a.fill("Legendary")
+        b = Array.new(9)
+        b.fill("Epic")
+        c = Array.new(20)
+        c.fill("Rare")
+        rare_chance_array = a + b + c
+        return rare_chance_array.shuffle.pop
+    end
+        
+        
 
     #standard arena random card generator
     def arena_random_card(card_rarity, hero_class)

@@ -4,7 +4,12 @@
 <div class="row">
     <div class="col-md-9">
         <div class="row">
-            <% arena_random_card(random_rarity, @deck.name).each do |card| %>
+            <% if @deck.deck_cards.size < 27 %>
+                <% @card_rarity = random_rarity %>
+            <% else %>
+                <% @card_rarity = last_four_rarity %>
+            <% end %>
+            <% arena_random_card(@card_rarity, @deck.name).each do |card| %>
                 <div class="col-md-4">
                     <%= form_for(@deck_cards) do %>
                         <%= hidden_field_tag :card_id, card[:id] %>
