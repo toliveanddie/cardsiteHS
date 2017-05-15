@@ -20,6 +20,7 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'simple_form'
+gem 'mail', '2.6.6.rc1'
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'
