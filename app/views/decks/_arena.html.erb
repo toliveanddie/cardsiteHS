@@ -1,5 +1,5 @@
 <p>click on an image to select it</p>
-<button class="btn btn-info">show meta scores</button>
+<button id="meta_button" class="btn btn-info center-block">show meta scores</button>
 <p></p>
 <div class="row">
     <div class="col-md-9">
@@ -17,15 +17,16 @@
                         <%= hidden_field_tag :card_meta_score, meta_score(card, @deck.name) %>
                         <%= image_submit_tag card[:img], style: "height: 350px;", class: "center-block" %>
                     <% end %>
-                    <h5 class="text-center"><%= card.playerClass %></h5>
-                    <h4 class="text-center"><%= meta_score(card, @deck.name) %></h4>
+                    <h4 class="text-center"><%= card.playerClass %></h4>
+                    <h3 class="text-center"><%= meta_score(card, @deck.name) %></h3>
                 </div>
             <% end %>
         </div>
     </div>
     <div class="col-md-3">
-        <h1><%= @deck.name %></h1>
-        <h3>cards: <%= @deck.cards.size %></h3>
+        <h1><%= @deck.name %>:
+            <%= @deck.cards.size %>
+        </h1>
         <table class="table table-condensed">
             <tr>
                 <th><%= image_tag "mana.png", style: "height: 23px;" %></th>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
 # deck controller
   resources :decks
+  get 'info', to: 'decks#info'
 
 #profile controller
   resources :profiles
