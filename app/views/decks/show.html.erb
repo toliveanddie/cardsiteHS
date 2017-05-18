@@ -8,7 +8,7 @@
     <%= link_to @deck.user.profile.battle_tag, @deck.user.profile, class: "btn btn-info" %>
     <table class="table table-responsive">
         <tr>
-            <th>meta score</th>
+            <th>Total score</th>
             <th>Free</th>
             <th>Common</th>
             <th>Rare</th>
@@ -30,7 +30,10 @@
     </table>
     <hr>
     <% @deck.cards.order(:cost).each do |card| %>
-            <%= image_tag card.img, style: "height: 250px" %>
+        <div class="showdeck">
+            <%= image_tag card.img, style: "height: 250px" %><br>
+            <h4><%= meta_score(card, @deck.name) %></h4>
+        </div>
     <% end %>
 <% end %>
 
