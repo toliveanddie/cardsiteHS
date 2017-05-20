@@ -26,7 +26,7 @@ class DecksController < ApplicationController
     end
     
     def index
-        decks = Deck.where("meta_score != 'nil'")
+        decks = Deck.where.not("meta_score = 'nil'")
         @decks = decks.paginate(:page => params[:page])
     end
     
