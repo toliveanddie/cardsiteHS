@@ -77,4 +77,15 @@ module DecksHelper
             card.tier_scores.first.hero_score
         end
     end
+    
+    def ranked_decks
+        ranked = []
+        @deck = Deck.all
+        @deck.each do |deck|
+            if deck.meta_score > 50
+                ranked.push(deck)
+            end
+        end
+        return ranked
+    end
 end
