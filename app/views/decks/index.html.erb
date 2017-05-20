@@ -14,10 +14,6 @@
         <Th>Legendary</Th>
     </tr>
     <% @decks.order(meta_score: :desc).each do |deck| %>
-      <% if deck.meta_score == nil %>
-        <% deck.meta_score = 0 %>
-        <% deck.save %>
-      <% end %>
         <tr>
           <td><strong><%= link_to deck.meta_score, deck_path(deck), class: "btn btn-info" %></strong></td>
           <td><strong><%= deck.name %></strong></td>
