@@ -2597,37 +2597,37 @@
       "Scores": [
         {
           "Hero": null,
-          "Score": 117,
+          "Score": 108,
           "StopAfterFirst": false,
           "StopAfterSecond": false
         },
         {
           "Hero": "Druid",
-          "Score": 120,
+          "Score": 110,
           "StopAfterFirst": false,
           "StopAfterSecond": false
         },
         {
           "Hero": "Hunter",
-          "Score": 122,
+          "Score": 112,
           "StopAfterFirst": false,
           "StopAfterSecond": false
         },
         {
           "Hero": "Priest",
-          "Score": 123,
+          "Score": 113,
           "StopAfterFirst": false,
           "StopAfterSecond": false
         },
         {
           "Hero": "Rogue",
-          "Score": 97,
+          "Score": 89,
           "StopAfterFirst": false,
           "StopAfterSecond": false
         },
         {
           "Hero": "Warlock",
-          "Score": 85,
+          "Score": 78,
           "StopAfterFirst": false,
           "StopAfterSecond": false
         }

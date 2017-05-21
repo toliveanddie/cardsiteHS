@@ -6,9 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Card.delete_all
+TierScore.delete_all
+HeroCard.delete_all
 
-
-#push the cards to model
+#push the cards to database
 cards_path = "#{Rails.root}/public/collectible.json"
 cards = JSON.parse(File.read(cards_path))
 cards.each do |key, value|
@@ -34,8 +36,7 @@ cards.each do |key, value|
     :howToGetGold => card['howToGetGold'],
     :img => card['img'],
     :imgGold => card['imgGold'],
-    :locale => card['locale']
-    )
+    :locale => card['locale'])
   end
 end
 
@@ -52,12 +53,16 @@ tier_cards.each do |key, value|
   end
 end
 
+#delete cards with zero scores
 dcards = Card.all
 dcards.each do |d|
   if d.tier_scores.count == 0
     d.delete
   end
 end
+
+
+#get hero card images, playerclass and name
 hnames = ["Anduin Wrynn",
           "Garrosh Hellscream",
           "Gul'dan", 
@@ -81,4 +86,3 @@ hero_cards.each do |key, value|
     end
   end
 end
-
