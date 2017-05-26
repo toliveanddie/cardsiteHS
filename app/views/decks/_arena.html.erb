@@ -1,5 +1,5 @@
 <p>click on an image to select it</p>
-<button id="meta_button" class="btn btn-info center-block">show meta scores</button>
+<button class="btn btn-info center-block">show meta scores</button>
 <p></p>
 <div class="row">
     <div class="col-md-9">
@@ -17,6 +17,7 @@
                         <%= hidden_field_tag :card_meta_score, meta_score(card, @deck.name) %>
                         <%= image_submit_tag card[:img], style: "height: 350px;", class: "center-block" %>
                     <% end %>
+                    <h4 id="cname" class="text-center"><%= card.name %></h4>
                     <h4 class="text-center"><%= card.playerClass %></h4>
                     <h3 class="text-center"><%= meta_score(card, @deck.name) %></h3>
                 </div>
@@ -56,10 +57,12 @@
           });
         });
         
-        $(".text-center").hide();
+        $('h3').hide();
         
-        $("button").click(function() {
-            $(".text-center").show();
-            $('button').hide();
+        
+        $('button').click(function() {
+            $(this).hide();
+            $('h3').show();
+            
         });
     </script>
