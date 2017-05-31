@@ -223,7 +223,7 @@ GEM
     guard-minitest (2.4.4)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
-    i18n (0.8.1)
+    i18n (0.8.4)
     inflecto (0.0.2)
     ipaddress (0.8.3)
     jbuilder (2.4.1)

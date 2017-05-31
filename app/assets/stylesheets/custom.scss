@@ -1,6 +1,10 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+tr:hover td {
+    background: tan;
+}
+
 #random {
     text-align: center;
 }
