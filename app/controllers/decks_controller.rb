@@ -3,7 +3,7 @@ class DecksController < ApplicationController
     before_action :authenticate_user!
     
     def new
-        if current_user.profile(:user_id) == nil
+        if current_user.profile == nil
             redirect_to new_profile_path
         else
             @deck = current_user.decks.build

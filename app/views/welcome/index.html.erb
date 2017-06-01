@@ -5,7 +5,7 @@
     Meta scores, card sets and a full selection simulation.
     <br>
     <% if user_signed_in? %>
-        <% if current_user.profile(:user_id) == nil %>
+        <% if current_user.profile == nil %>
             <hr>
             Please create profile <%= link_to 'here', new_profile_path, class: "btn btn-primary" %>
         <% else %>
