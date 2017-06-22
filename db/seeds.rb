@@ -86,7 +86,7 @@
 
 
 #update scores
-tier_path = "#{Rails.root}/public/tier2.json"
+tier_path = "#{Rails.root}/public/tier3.json"
 tier_cards = JSON.parse(File.read(tier_path))
 tier_cards.each do |key, value|
   value.each do |score_card|
